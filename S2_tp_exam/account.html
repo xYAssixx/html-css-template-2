@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width ; initial-scale=1.0">
+    <!-- main template css file -->
+    <link rel="stylesheet" href="css/style1.css">
+    <!-- some font awesome library-->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normlize.css">
+    <!-- google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Katibeh&display=swap" rel="stylesheet">
+    <title>My website</title>
+  </head>
+  <body>
+    <header id="account">
+      <div class="container">
+        <a href="https://www.ens-kouba.dz/arabic/index.php"> <img src="images/logo.png" alt="الموقع"> </a>
+        <nav>
+          <ul>
+            <li><a href="https://www.ens-kouba.dz/arabic/index.php"><div class="">
+                صفحة المدرسة
+            </div> </a> </li>
+            <li> <a href="MyWebSite.html"> <div>الصفحة الرئيسية</div> </a> </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="account">
+      <nav>
+        <a href="#" class="profile" data-code-block="profile">
+          <img src="images/student.png" alt="">
+        </a>
+        <div username="Student-1"></div>
+        <!-- <div><span class="material-symbols-outlined">account_box</span>
+          Personal info </div> -->
+        <!-- <a><span href="#dashboard" class="material-symbols-outlined">dashboard</span> Dashboard </a> -->
+        <a href="#" data-code-block=""><span class="material-symbols-outlined">School</span> الدرجات</a>
+        <a href="#" data-code-block=""><span class="material-symbols-outlined">table</span> جدول الزمن</a>
+        <a href="#" data-code-block=""><span class="material-symbols-outlined">live_tv</span> حصة اونلاين </a>
+        <a href="#" data-code-block=""><span class="material-symbols-outlined">groups</span> الأقسام و الأفواج</a>
+        <a href="#" data-code-block=""><span class="material-symbols-outlined">calculate</span> المهام </a>
+        <a href="#" data-code-block=""><span class="material-symbols-outlined">settings</span> الاعدادات</a>
+        <a href="#" data-code-block=""><span class="material-symbols-outlined">help</span>مساعدة </a>
+        <a href="log_in.html"><span  class="material-symbols-outlined">logout</span>تسجيل الخروج</a>
+      </nav>
+      <section class="content">
+        <div id="profile" class="code-block">
+          <div id="overview">
+            <h3>نظرة عامة</h3>
+            <div class="big-box">
+              <div class="box">
+                <img src="images/medal.svg" alt="">
+                <div c-rank="2"></div>
+                <h4>ترتيب القسم</h4>
+              </div>
+              <div class="box">
+                <img src="images/iq1.png" alt="">
+                <div iq-p="120"></div>
+                <h4>IQ points</h4>
+              </div>
+              <div class="box">
+                <img src="images/absence1.png" alt="">
+                <div absence="3"></div>
+                <h4>الغياب</h4>
+              </div>
+            </div>
+          </div>
+          <div id="stu-card">
+            <!-- <h3>بطاقة طالب</h3> -->
+            <a href="images/s-card.png" target="_blank"><img src="images/s-card.png" alt=""></a>
+          </div>
+          <div id="info"> <img src="images/group.png" alt="">
+          <div sect="1"></div>
+          <h4>المجموعة</h4><div group="3"></div>
+          <h4>الفوج</h4>
+          </div>
+        </div>
+        <div id="degree" class="code-block">
+
+        </div>
+      </section>
+
+      <aside class="today">
+        <div class="Class-sch">
+          <h3>حصص اليوم</h3>
+          <div date="14.04.2024">
+اليوم          </div>
+          <div class="class">
+            <div>
+              08:30 AM - 9:55 AM
+            </div>
+            <span>Compilation</span><span>Ms.Bouyahia</span>
+          </div>
+          <div class="class">
+            <div>
+              10:00 AM - 11:20 AM
+            </div>
+            <span>web tech</span><span>Ms.Guidom</span>
+          </div>
+          <div class="class">
+            <div>
+              11:25 AM - 12:45 AM
+            </div>
+            <span>Networking</span><span>Ms.Achi</span>
+          </div>
+          </div>
+          <div >
+            <a href="images/EMP23-24.pdf"> ...رؤية جدول الزمن</a>
+          </div>
+          <div class="notices">
+
+          </div>
+      </aside>
+    </main>
+    <script>
+  // Get all anchor tags in the document
+  const anchorTags = document.querySelectorAll('#account nav a');
+
+  // Loop through each anchor tag
+  anchorTags.forEach(anchor => {
+    // Add click event listener
+    anchor.addEventListener('click', function() {
+      // Get the corresponding code block using data attribute
+      const codeBlockId = this.getAttribute('data-code-block');
+      const codeBlock = document.getElementById(codeBlockId);
+
+      // Check if the code block is currently hidden
+      if (codeBlock.style.display === 'none' || codeBlock.style.display === '') {
+        // Hide all other code blocks
+        document.querySelectorAll('.code-block').forEach(block => {
+          block.style.display = 'none';
+        });
+
+        // Fade in the code block
+        fadeIn(codeBlock);
+      } else {
+        // Toggle display of the code block
+        codeBlock.style.display = 'none';
+      }
+    });
+  });
+
+  // Function to fade in an element
+  function fadeIn(element) {
+    // Set initial opacity to 0
+    element.style.opacity = 0;
+    // Set display to block to make it visible
+    element.style.display = 'flex';
+
+    // Animate the opacity from 0 to 1 over 500 milliseconds
+    let opacity = 0;
+    const increment = 0.05;
+    const interval = 10;
+    const fadeInterval = setInterval(function() {
+      opacity += increment;
+      element.style.opacity = opacity;
+      if (opacity >= 1) {
+        clearInterval(fadeInterval);
+      }
+    }, interval);
+  }
+</script>
+  </body>
+</html>
